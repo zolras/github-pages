@@ -73,7 +73,7 @@
 
   <main>
     <p class="intro-text">点击下方按钮，开始与智能助手对话，参与调研吧！</p>
-    <button class="start-btn" onclick="openChat()">开始调研</button>
+    <button class="start-btn" onclick="client.open()">开始调研</button>
   </main>
 
   <footer>
@@ -99,10 +99,6 @@
         }
       }
     });
-
-    function openChat() {
-      window.CozeWebSDK.open();
-    }
   </script>
 </body>
 </html>
