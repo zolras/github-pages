@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+  <meta charset="UTF-8">
+  <title>车辆外观调研员 - 聊天机器人</title>
+  <style>
+    body {
+      font-family: "Arial", sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f7f7f7;
+    }
+    header {
+      background-color: #004d99;
+      color: white;
+      padding: 20px;
+      text-align: center;
+    }
+    main {
+      padding: 20px;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>车辆外观调研员</h1>
+    <p>欢迎体验车辆外观偏好调研对话助手</p>
+  </header>
+  <main>
+    <p>点击右下角按钮与聊天机器人开始调研对话。</p>
+  </main>
+
+  <!-- 引入 Coze SDK -->
+  <script src="https://lf-cdn.coze.cn/obj/unpkg/flow-platform/chat-app-sdk/1.2.0-beta.6/libs/cn/index.js"></script>
+  <script>
+    new CozeWebSDK.WebChatClient({
+      config: {
+        bot_id: '7501314855144849408',
+      },
+      componentProps: {
+        title: '外观偏好调研员',
+      },
+      auth: {
+        type: 'token',
+        token: 'pat_********',  // 🔒 请替换为你自己的有效 token
+        onRefreshToken: function () {
+          return 'pat_********'; // 如果需要定期刷新 token，可在此返回新 token
+        }
+      }
+    });
+  </script>
+</body>
+</html>
