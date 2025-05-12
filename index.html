@@ -5,19 +5,63 @@
   <title>车辆外观调研员 - 聊天机器人</title>
   <style>
     body {
-      font-family: "Arial", sans-serif;
+      font-family: "Segoe UI", sans-serif;
       margin: 0;
       padding: 0;
-      background-color: #f7f7f7;
+      background-color: #f0f4f8;
+      color: #333;
     }
+
     header {
       background-color: #004d99;
       color: white;
-      padding: 20px;
+      padding: 40px 20px;
+      text-align: center;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: 32px;
+    }
+
+    header p {
+      font-size: 16px;
+      margin-top: 8px;
+    }
+
+    main {
+      padding: 40px 20px;
       text-align: center;
     }
-    main {
+
+    .intro-text {
+      font-size: 18px;
+      margin-bottom: 30px;
+    }
+
+    .start-btn {
+      background-color: #007bff;
+      color: white;
+      border: none;
+      padding: 14px 28px;
+      font-size: 16px;
+      border-radius: 8px;
+      cursor: pointer;
+      box-shadow: 0 4px 10px rgba(0, 123, 255, 0.3);
+      transition: background-color 0.3s ease;
+    }
+
+    .start-btn:hover {
+      background-color: #0056b3;
+    }
+
+    footer {
+      margin-top: 60px;
       padding: 20px;
+      text-align: center;
+      color: #888;
+      font-size: 14px;
     }
   </style>
 </head>
@@ -26,28 +70,39 @@
     <h1>车辆外观调研员</h1>
     <p>欢迎体验车辆外观偏好调研对话助手</p>
   </header>
+
   <main>
-    <p>点击右下角按钮与聊天机器人开始调研对话。</p>
+    <p class="intro-text">点击下方按钮，开始与智能助手对话，参与调研吧！</p>
+    <button class="start-btn" onclick="openChat()">开始调研</button>
   </main>
+
+  <footer>
+    © 2025 车辆调研项目团队
+  </footer>
 
   <!-- 引入 Coze SDK -->
   <script src="https://lf-cdn.coze.cn/obj/unpkg/flow-platform/chat-app-sdk/1.2.0-beta.6/libs/cn/index.js"></script>
   <script>
-    new CozeWebSDK.WebChatClient({
+    const client = new CozeWebSDK.WebChatClient({
       config: {
         bot_id: '7501314855144849408',
       },
       componentProps: {
         title: '外观偏好调研员',
+        open: false // 初始不展开，由按钮触发
       },
       auth: {
         type: 'token',
-        token: 'pat_UdZmAD9vdQrEbj3ZEy96n8evcuFi1HMQU3K5uHG7EHD6Iz3L1iJfIl5Ha8OWVPAU',  // 🔒 请替换为你自己的有效 token
+        token: 'pat_UdZmAD9vdQrEbj3ZEy96n8evcuFi1HMQU3K5uHG7EHD6Iz3L1iJfIl5Ha8OWVPAU',
         onRefreshToken: function () {
-          return 'pat_UdZmAD9vdQrEbj3ZEy96n8evcuFi1HMQU3K5uHG7EHD6Iz3L1iJfIl5Ha8OWVPAU'; // 如果需要定期刷新 token，可在此返回新 token
+          return 'pat_UdZmAD9vdQrEbj3ZEy96n8evcuFi1HMQU3K5uHG7EHD6Iz3L1iJfIl5Ha8OWVPAU';
         }
       }
     });
+
+    function openChat() {
+      window.CozeWebSDK.open();
+    }
   </script>
 </body>
 </html>
