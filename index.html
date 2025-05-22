@@ -1,84 +1,43 @@
 <!DOCTYPE html>
-<html lang="zh">
+<html lang="zh-CN">
 <head>
   <meta charset="UTF-8">
-  <title>车辆外观调研员 - 嵌入式聊天机器人</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Coze Chat Web</title>
   <style>
     body {
-      font-family: "Segoe UI", sans-serif;
-      margin: 0;
-      padding: 0;
-      background-color: #f2f4f7;
+      font-family: Arial, sans-serif;
+      padding: 20px;
+      background-color: #f9f9f9;
     }
-
-    header {
-      background-color: #004d99;
-      color: white;
-      padding: 30px 20px;
-      text-align: center;
+    h1 {
+      color: #333;
     }
-
-    main {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      padding: 40px 20px;
-    }
-
-    .intro-text {
-      font-size: 18px;
-      margin-bottom: 20px;
-    }
-
     #chat-container {
-      width: 100%;
-      max-width: 800px;
-      height: 600px;
-      border: 1px solid #ccc;
-      border-radius: 10px;
-      overflow: hidden;
-      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
-    }
-
-    footer {
-      text-align: center;
       margin-top: 40px;
-      color: #999;
-      font-size: 14px;
     }
   </style>
 </head>
 <body>
-  <header>
-    <h1>车辆外观调研员</h1>
-    <p>欢迎参与车辆外观偏好调研</p>
-  </header>
+  <h1>欢迎使用 Coze Chat</h1>
+  <p>下面是嵌入的聊天组件：</p>
 
-  <main>
-    <p class="intro-text">下方是调研助手对话窗口，请开始互动：</p>
-    <div id="chat-container"></div>
-  </main>
+  <div id="chat-container"></div>
 
-  <footer>© 2025 调研助手平台</footer>
-
-  <!-- 引入 Coze SDK -->
   <script src="https://lf-cdn.coze.cn/obj/unpkg/flow-platform/chat-app-sdk/1.2.0-beta.6/libs/cn/index.js"></script>
   <script>
     new CozeWebSDK.WebChatClient({
       config: {
-        bot_id: '7501314855144849408',
-        mode: 'embed',              // 使用嵌入模式
-        containerId: 'chat-container' // 绑定到指定容器
+        bot_id: '7507277447646494746',
       },
       componentProps: {
-        title: '外观偏好调研员',
-        embedded: true
+        title: 'Coze',
       },
       auth: {
         type: 'token',
-        token: 'pat_UdZmAD9vdQrEbj3ZEy96n8evcuFi1HMQU3K5uHG7EHD6Iz3L1iJfIl5Ha8OWVPAU',
+        token: 'pat_********',
         onRefreshToken: function () {
-          return 'pat_UdZmAD9vdQrEbj3ZEy96n8evcuFi1HMQU3K5uHG7EHD6Iz3L1iJfIl5Ha8OWVPAU';
+          return 'pat_********';
         }
       }
     });
