@@ -3,26 +3,111 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Coze Chat Web</title>
+  <title>情感化提示词生成</title>
   <style>
     body {
-      font-family: Arial, sans-serif;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #f4f6f9;
+      margin: 0;
       padding: 20px;
-      background-color: #f9f9f9;
-    }
-    h1 {
       color: #333;
     }
+
+    h1 {
+      text-align: center;
+      color: #2c3e50;
+    }
+
+    table {
+      width: 90%;
+      margin: 20px auto;
+      border-collapse: collapse;
+      background-color: #fff;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    th, td {
+      padding: 12px;
+      border: 1px solid #ddd;
+      text-align: center;
+    }
+
+    th {
+      background-color: #3498db;
+      color: white;
+    }
+
+    tr:nth-child(even) {
+      background-color: #f2f2f2;
+    }
+
     #chat-container {
-      margin-top: 40px;
+      margin-top: 50px;
+      text-align: center;
+    }
+
+    footer {
+      text-align: center;
+      padding: 20px;
+      font-size: 14px;
+      color: #777;
     }
   </style>
 </head>
 <body>
-  <h1>欢迎使用 Coze Chat</h1>
-  <p>下面是嵌入的聊天组件：</p>
 
-  <div id="chat-container"></div>
+  <h1>汽车情感分析参考数据</h1>
+
+  <table>
+    <thead>
+      <tr>
+        <th>特征</th>
+        <th>情感词</th>
+        <th>情感强度</th>
+        <th>词频</th>
+        <th>情感评分</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr><td rowspan="4">格栅</td><td>大</td><td>0.6219</td><td>37</td><td rowspan="4">0.6102</td></tr>
+      <tr><td>犀利</td><td>0.5723</td><td>12</td></tr>
+      <tr><td>精致</td><td>0.6654</td><td>10</td></tr>
+      <tr><td>宽大</td><td>0.5969</td><td>9</td></tr>
+
+      <tr><td rowspan="5">大灯</td><td>犀利</td><td>0.5723</td><td>176</td><td rowspan="5">0.5810</td></tr>
+      <tr><td>全</td><td>0.4901</td><td>83</td></tr>
+      <tr><td>好</td><td>0.6666</td><td>43</td></tr>
+      <tr><td>高</td><td>0.6392</td><td>32</td></tr>
+      <tr><td>漂亮</td><td>0.7170</td><td>26</td></tr>
+
+      <tr><td rowspan="5">流线型</td><td>好</td><td>0.6666</td><td>27</td><td rowspan="5">0.6691</td></tr>
+      <tr><td>漂亮</td><td>0.7170</td><td>8</td></tr>
+      <tr><td>完美</td><td>0.6720</td><td>6</td></tr>
+      <tr><td>流畅</td><td>0.7110</td><td>4</td></tr>
+      <tr><td>很棒</td><td>0.5018</td><td>3</td></tr>
+
+      <tr><td rowspan="7">车头</td><td>大</td><td>0.6219</td><td>27</td><td rowspan="7">0.5971</td></tr>
+      <tr><td>好</td><td>0.6666</td><td>26</td></tr>
+      <tr><td>低</td><td>0.1908</td><td>16</td></tr>
+      <tr><td>宽大</td><td>0.5969</td><td>16</td></tr>
+      <tr><td>漂亮</td><td>0.7170</td><td>15</td></tr>
+      <tr><td>高</td><td>0.6392</td><td>15</td></tr>
+      <tr><td>流畅</td><td>0.7110</td><td>14</td></tr>
+
+      <tr><td rowspan="3">塑料</td><td>硬</td><td>-0.4872</td><td>27</td><td rowspan="3">−0.1790</td></tr>
+      <tr><td>大</td><td>0.6219</td><td>11</td></tr>
+      <tr><td>一般</td><td>-0.3010</td><td>4</td></tr>
+
+      <tr><td rowspan="4">碳纤维</td><td>全</td><td>0.4901</td><td>4</td><td rowspan="4">0.5568</td></tr>
+      <tr><td>大</td><td>0.6219</td><td>4</td></tr>
+      <tr><td>新</td><td>0.4811</td><td>1</td></tr>
+      <tr><td>高</td><td>0.6392</td><td>1</td></tr>
+    </tbody>
+  </table>
+
+  <div id="chat-container">
+    <p>与 Coze 聊天：</p>
+  </div>
 
   <script src="https://lf-cdn.coze.cn/obj/unpkg/flow-platform/chat-app-sdk/1.2.0-beta.6/libs/cn/index.js"></script>
   <script>
@@ -42,5 +127,9 @@
       }
     });
   </script>
+
+  <footer>
+    数据来源于情感分析模型，仅供参考。
+  </footer>
 </body>
 </html>
